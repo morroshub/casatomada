@@ -6,19 +6,23 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class PerfilUsuario(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    puntaje = models.IntegerField(default=0)
 
-class Pregunta(models.Model):
-    texto_pregunta = models.CharField(max_length=255)
-    es_correcta = models.BooleanField(default=False)
+# class PerfilUsuario(models.Model):
+# #     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+# #     puntaje = models.IntegerField(default=0)
 
-class Respuesta(models.Model):
-    pregunta = models.ForeignKey('Pregunta', on_delete=models.CASCADE)
-    respuesta = models.BooleanField()  # True o False, según la respuesta del usuario
+# #     class Meta:
+# #         app_label = 'game'  
 
-    def __str__(self):
-        return f"Respuesta a la pregunta {self.pregunta.id}: {self.respuesta}"
+# class Pregunta(models.Model):
+#     texto_pregunta = models.CharField(max_length=255)
+#     es_correcta = models.BooleanField(default=False)
+
+# class Respuesta(models.Model):
+#     pregunta = models.ForeignKey('Pregunta', on_delete=models.CASCADE)
+#     respuesta = models.BooleanField()  # True o False, según la respuesta del usuario
+
+#     def __str__(self):
+#         return f"Respuesta a la pregunta {self.pregunta.id}: {self.respuesta}"
 
 

@@ -1,7 +1,7 @@
-ffrom django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand
 from game.models import Pregunta, Respuesta
 
-class Command(BaseCommand):
+class Commandimport(BaseCommand):
     help = 'Importa preguntas desde diccionarios y carga en la base de datos'
 
     def handle(self, *args, **kwargs):

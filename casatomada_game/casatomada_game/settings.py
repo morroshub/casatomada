@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
+import os
+from pathlib import Path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,18 +26,26 @@ SECRET_KEY = "django-insecure-qwxq%7#@fao0o9ju-9dchtc_2$-ufdyhvi6!jrsrcj6o#y-#iu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    'reactpy_django',
+    
+    #Mis apps
+    'game',
 ]
 
 MIDDLEWARE = [
@@ -53,8 +62,8 @@ ROOT_URLCONF = "casatomada_game.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "BACKEND": 'django.template.backends.django.DjangoTemplates',
+        "DIRS": [os.path.join(BASE_DIR, 'game/templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -67,8 +76,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "casatomada_game.wsgi.application"
 
+WSGI_APPLICATION = "casatomada_game.wsgi.application"
+ASGI_APPLICATION = "casatomada_game.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
